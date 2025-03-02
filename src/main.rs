@@ -4,5 +4,6 @@ mod selection;
 fn main() {
     //maths::task1();
     //maths::task2();
-    selection::task1();
+    //selection::task1();
+    selection::task2();
 }
