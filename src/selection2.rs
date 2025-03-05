@@ -1,4 +1,4 @@
-use std::io;
+use std::{io, pin};
 
 pub fn task1() {
     println!("Post");
@@ -37,6 +37,7 @@ pub fn task2() {
     io::stdin()
         .read_line(&mut input)
         .expect("Error on read line");
+
     let day: u32 = input.trim().parse().expect("Error on parse");
 
     match day {
@@ -50,5 +51,35 @@ pub fn task2() {
             println!("It's Sunday")
         }
         _ => println!("Enter a valid week day"),
+    }
+}
+
+pub fn task3() {
+    println!("Grade Classifier");
+
+    let mut input = String::new();
+
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Error on read line");
+
+    let mut grade: u32 = input.trim().parse().expect("Error on parse");
+
+    match grade {
+        0..=39 => {
+            println!("Referral")
+        }
+        40..=49 => {
+            println!("Pass")
+        }
+        50..=69 => {
+            println!("Merit")
+        }
+        70..=100 => {
+            println!("Distinction")
+        }
+        _ => {
+            println!("Invalid Score")
+        }
     }
 }

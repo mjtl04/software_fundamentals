@@ -8,5 +8,6 @@ fn main() {
     //selection::task1();
     //selection::task2();
     //selection2::task1();
-    selection2::task2();
+    //selection2::task2();
+    selection2::task3();
 }
