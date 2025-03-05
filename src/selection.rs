@@ -1,4 +1,4 @@
-use std::{collections, io};
+use std::io;
 
 const ADULT: f32 = 10.50;
 const CHILD: f32 = 7.30;
