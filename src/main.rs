@@ -1,3 +1,4 @@
+mod iteration;
 mod maths;
 mod selection;
 mod selection2;
@@ -9,5 +10,6 @@ fn main() {
     //selection::task2();
     //selection2::task1();
     //selection2::task2();
-    selection2::task3();
+    //selection2::task3();
+    iteration::task1();
 }
