@@ -28,3 +28,27 @@ pub fn task1() {
         }
     }
 }
+
+pub fn task2() {
+    println!("What day is it?");
+
+    let mut input = String::new();
+
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Error on read line");
+    let day: u32 = input.trim().parse().expect("Error on parse");
+
+    match day {
+        1..=5 => {
+            println!("It is a week day")
+        }
+        6 => {
+            println!("It's Saturday")
+        }
+        7 => {
+            println!("It's Sunday")
+        }
+        _ => println!("Enter a valid week day"),
+    }
+}
