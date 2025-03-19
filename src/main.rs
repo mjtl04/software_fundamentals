@@ -15,5 +15,6 @@ fn main() {
     //iteration::task1();
     //iteration::task2();
     //iteration2::task1();
-    iteration2::task2();
+    //iteration2::task2();
+    iteration2::task3();
 }
