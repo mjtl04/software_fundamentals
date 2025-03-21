@@ -1,8 +1,9 @@
+mod arrays;
+mod iteration;
+mod iteration2;
 mod maths;
 mod selection;
 mod selection2;
-mod iteration;
-mod iteration2;
 
 fn main() {
     //maths::task1();
@@ -16,5 +17,6 @@ fn main() {
     //iteration::task2();
     //iteration2::task1();
     //iteration2::task2();
-    iteration2::task3();
+    //iteration2::task3();
+    arrays::task1();
 }
