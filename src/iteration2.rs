@@ -74,3 +74,14 @@ pub fn task3(){
     println!("It will take {year_count} to achieve £{required_balance:.2}");
 
 }
+
+Survey looks good, thanks for creating it. Couple of small bits I noticed that might be worth taking a look if other agree:
+
+1. "Number of months with current company" - just makes it a bit more clear for the user
+2. years in industry - any way of adding some more detail as to what the question is after? maybe "years in the tech/IT industry"
+3. "Device used for work" - instead of "which do you use.."
+3. Computer manufacturer question to be a drop down. Avoids typos, mismatches [DELL, Acer, HP, Lenovo, Apple, Asus, Chromebook, Apple]
+4. Operating System question also as a drop down. [Windows, MacOS, Linux]
+5. if you enable the back button does it let the user go back from the review page? if not then maybe best to not have a review page and just show the thank-you page after they finish the questions?
+
+All just small bits to tweak if the others agree, thanks for making it.

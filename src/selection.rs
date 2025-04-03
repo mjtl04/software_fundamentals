@@ -1,17 +1,12 @@
 use std::io;
 
-const ADULT: f32 = 10.50;
-const CHILD: f32 = 7.30;
-const CONC: f32 = 8.40;
-const COLLECTION_COST: f32 = 2.34;
-
 pub fn task1() {
     //selection
     let mut input = String::new();
 
     println!("Input the Cost");
     io::stdin().read_line(&mut input).expect("error on input");
-    let cost: f32 = input.trim().parse().expect("error on assigning");
+    let cost: f32 = input.trim().parse().expect("error on parsing");
 
     if cost >= 0.0 && cost <= 1000.0 {
         if cost > 500.0 {
@@ -27,6 +22,11 @@ pub fn task1() {
 }
 
 pub fn task2() {
+    const ADULT: f32 = 10.50;
+    const CHILD: f32 = 7.30;
+    const CONC: f32 = 8.40;
+    const POSTAGE_COST: f32 = 2.34;
+
     let mut input = String::new();
 
     println!("Adults: ");
@@ -45,7 +45,8 @@ pub fn task2() {
 
     println!("Collection in Person? yes/no: ");
     io::stdin().read_line(&mut input).expect("error on input");
-    let collection: String = input.trim().parse().expect("error on parse");
+
+    let collection: String = input.trim().to_lowercase().parse().expect("error on parse");
 
     let float_children: f32 = no_children as f32 / 10.0;
     let free_adults: u32 = float_children as u32;
@@ -66,9 +67,9 @@ pub fn task2() {
         total_price *= 0.9;
     }
 
-    if collection == "yes" {
-        total_price += COLLECTION_COST;
-        postage_cost = COLLECTION_COST;
+    if collection == "no" {
+        total_price += POSTAGE_COST;
+        postage_cost = POSTAGE_COST;
     }
     println!();
     println!("{no_children} Children Cost: £{children_cost:.2}");

@@ -1,7 +1,8 @@
-use std::{io, pin};
+use std::io;
 
 pub fn task1() {
     println!("Post");
+    println!("Enter the type of letter you have received: e.g 3: ");
     let mut input = String::new();
 
     io::stdin()
@@ -31,6 +32,7 @@ pub fn task1() {
 
 pub fn task2() {
     println!("What day is it?");
+    println!("Enter the day of the week: ");
 
     let mut input = String::new();
 
@@ -56,6 +58,7 @@ pub fn task2() {
 
 pub fn task3() {
     println!("Grade Classifier");
+    println!("Enter your grade");
 
     let mut input = String::new();
 
@@ -79,7 +82,7 @@ pub fn task3() {
             println!("Distinction")
         }
         _ => {
-            println!("Invalid Score")
+            println!("Invalid grade")
         }
     }
 }

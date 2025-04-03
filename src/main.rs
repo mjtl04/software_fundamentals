@@ -19,5 +19,5 @@ fn main() {
     //iteration2::task2();
     //iteration2::task3();
     //arrays::task1();
-    arrays::task2();
+    //arrays::task2();
 }
