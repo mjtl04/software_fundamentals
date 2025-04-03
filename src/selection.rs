@@ -8,7 +8,7 @@ pub fn task1() {
     io::stdin().read_line(&mut input).expect("error on input");
     let cost: f32 = input.trim().parse().expect("error on parsing");
 
-    if cost >= 0.0 && cost <= 1000.0 {
+    if (0.0..=1000.0).contains(&cost) {
         if cost > 500.0 {
             println!("You get a 20% discount!");
         } else if cost > 250.0 {
@@ -29,6 +29,7 @@ pub fn task2() {
 
     let mut input = String::new();
 
+    //Input
     println!("Adults: ");
     io::stdin().read_line(&mut input).expect("error on input");
     let no_adults: u32 = input.trim().parse().expect("error on parse");
@@ -42,15 +43,15 @@ pub fn task2() {
     println!("Concessions: ");
     io::stdin().read_line(&mut input).expect("error on input");
     let no_concessions: u32 = input.trim().parse().expect("error on parse");
+    input.clear();
 
     println!("Collection in Person? yes/no: ");
     io::stdin().read_line(&mut input).expect("error on input");
-
     let collection: String = input.trim().to_lowercase().parse().expect("error on parse");
+    input.clear();
 
-    let float_children: f32 = no_children as f32 / 10.0;
-    let free_adults: u32 = float_children as u32;
-
+    //Calculation
+    let free_adults: u32 = no_children / 10;
     let children_cost: f32 = no_children as f32 * CHILD;
     let mut adult_cost: f32 = 0.00;
 
@@ -61,16 +62,19 @@ pub fn task2() {
     let concession_cost = no_concessions as f32 * CONC;
 
     let mut total_price = children_cost + adult_cost + concession_cost;
-    let mut postage_cost = 0.00;
-
+    //Apply discount
     if total_price > 100.0 {
         total_price *= 0.9;
     }
 
-    if collection == "no" {
-        total_price += POSTAGE_COST;
-        postage_cost = POSTAGE_COST;
-    }
+    let postage_cost = if collection == "no" {
+        POSTAGE_COST
+    } else {
+        0.0
+    };
+    total_price += postage_cost;
+
+    //Print receipt
     println!();
     println!("{no_children} Children Cost: £{children_cost:.2}");
     println!("{no_adults} Adult(s) Cost: £{adult_cost:.2}");

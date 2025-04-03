@@ -66,7 +66,7 @@ pub fn task3() {
         .read_line(&mut input)
         .expect("Error on read line");
 
-    let mut grade: u32 = input.trim().parse().expect("Error on parse");
+    let grade: u32 = input.trim().parse().expect("Error on parse");
 
     match grade {
         0..=39 => {

@@ -1,7 +1,7 @@
 use std::io;
+const INPUTS: u32 = 10;
 
 pub fn task1() {
-    const INPUTS: u32 = 10;
     println!("Enter 10 numbers");
 
     let mut input = String::new();
