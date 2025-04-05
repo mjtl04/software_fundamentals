@@ -1,4 +1,5 @@
 mod arrays;
+mod functions;
 mod iteration;
 mod iteration2;
 mod maths;
@@ -19,5 +20,7 @@ fn main() {
     //iteration2::task2();
     //iteration2::task3();
     //arrays::task1();
-    arrays::task2();
+    //arrays::task2();
+    //functions::task1_main();
+    functions::task2_main();
 }
