@@ -22,5 +22,6 @@ fn main() {
     //arrays::task1();
     //arrays::task2();
     //functions::task1_main();
-    functions::task2_main();
+    //functions::task2_main();
+    functions::task3_main();
 }
