@@ -73,7 +73,7 @@ pub fn task2() {
     let average_grade: f32 = sum_grades as f32 / student_count as f32;
 
     println!("\nAverage: {average_grade:.2}");
-    println!("\nStudents above average: ");
+    println!("Students above average: ");
 
     for (i, &grade) in grades.iter().enumerate() {
         if grade as f32 > average_grade {

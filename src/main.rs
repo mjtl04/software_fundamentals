@@ -3,6 +3,7 @@ mod functions;
 mod iteration;
 mod iteration2;
 mod maths;
+mod searching;
 mod selection;
 mod selection2;
 
@@ -23,5 +24,6 @@ fn main() {
     //arrays::task2();
     //functions::task1_main();
     //functions::task2_main();
-    functions::task3_main();
+    //functions::task3_main();
+    searching::main();
 }

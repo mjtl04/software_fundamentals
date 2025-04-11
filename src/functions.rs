@@ -114,7 +114,7 @@ fn calculate_bmi(height: f32, weight: f32) {
     let bmi: f32 = weight / (height * height);
 
     let range = if bmi < 18.5 {
-        "Underweight"
+        "anderweight"
     } else if (18.5..=24.9).contains(&bmi) {
         "Healthy Weight"
     } else if (25.0..=29.9).contains(&bmi) {
