@@ -25,5 +25,6 @@ fn main() {
     //functions::task1_main();
     //functions::task2_main();
     //functions::task3_main();
-    searching::main();
+    //searching::task1_main();
+    searching::task2_main();
 }
