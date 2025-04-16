@@ -85,7 +85,7 @@ fn ternary_search(key: &str, last_names: &[&str], left: usize, right: usize) -> 
             return ternary_search(key, last_names, mid_second + 1, right);
         }
 
-        return ternary_search(key, last_names, mid_first + 1, mid_second - 1);
+        ternary_search(key, last_names, mid_first + 1, mid_second - 1)
     } else {
         None
     }

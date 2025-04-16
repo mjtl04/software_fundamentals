@@ -3,6 +3,7 @@ mod functions;
 mod iteration;
 mod iteration2;
 mod maths;
+mod recursion;
 mod searching;
 mod selection;
 mod selection2;
@@ -26,5 +27,6 @@ fn main() {
     //functions::task2_main();
     //functions::task3_main();
     //searching::task1_main();
-    searching::task2_main();
+    //searching::task2_main();
+    recursion::task1_main();
 }
