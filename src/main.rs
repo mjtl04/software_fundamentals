@@ -7,6 +7,7 @@ mod recursion;
 mod searching;
 mod selection;
 mod selection2;
+mod sorting;
 
 fn main() {
     //maths::task1();
@@ -29,5 +30,6 @@ fn main() {
     //searching::task1_main();
     //searching::task2_main();
     //recursion::task1_main();
-    recursion::task2_main();
+    //recursion::task2_main();
+    sorting::task1_main();
 }
