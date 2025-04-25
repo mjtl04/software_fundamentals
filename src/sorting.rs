@@ -27,12 +27,12 @@ pub fn task1_main() {
     get_order(&mut talent_contest);
 
     //task1 display
-    println!("\nIn third place: {}", talent_contest[2].name);
-    println!("In second place: {}", talent_contest[1].name);
-    println!("And the winner is: {}", talent_contest[0].name);
+    // println!("\nIn third place: {}", talent_contest[2].name);
+    // println!("In second place: {}", talent_contest[1].name);
+    // println!("And the winner is: {}", talent_contest[0].name);
 
     //task2 display
-    //order_votes(&mut talent_contest);
+    order_votes(&mut talent_contest);
 }
 
 fn initialise_candidates() -> [Candidates; 5] {
@@ -73,8 +73,9 @@ fn get_votes(candidates: &mut [Candidates; 5]) {
         let vote_input = get_input();
         if vote_input == -1 {
             break;
-        }
-        if vote_input < candidates.len() as i32 {
+        } else if vote_input < -1 {
+            println!("Enter a valid vote");
+        } else if vote_input < candidates.len() as i32 {
             candidates[vote_input as usize].votes += 1;
         } else {
             println!("Invalid Vote");
@@ -98,30 +99,105 @@ fn get_order(candidates: &mut [Candidates; 5]) {
     }
 }
 
+//fn order_votes(candidates: &mut [Candidates; 5]) {
+//    println!("checking");
+//    let first_place_votes = candidates[0].votes;
+//    if first_place_votes != 0 {
+//        let first_place: Vec<&Candidates> = candidates
+//            .iter()
+//            .take_while(|c| c.votes == first_place_votes)
+//            .collect();
+//
+//        let mut remaining_candidates = candidates.iter().skip(first_place.len());
+//
+//        let second_place: Vec<&Candidates> = if let Some(&candidate) = remaining_candidates.next() {
+//            let second_place_votes = candidate.votes;
+//            remaining_candidates
+//                .take_while(|c| c.votes == second_place_votes)
+//                .collect()
+//        } else {
+//            Vec::new()
+//        };
+//
+//        let mut remaining_after_second = remaining_candidates.clone();
+//
+//        let third_place: Vec<&Candidates> = if let Some(&candidate) = remaining_after_second.next()
+//        {
+//            let third_place_votes = candidate.votes;
+//            remaining_after_second
+//                .take_while(|c| c.votes == third_place_votes)
+//                .collect()
+//        } else {
+//            Vec::new()
+//        };
+//
+//        println!("\nFirst Place: {}", display_order(first_place));
+//        if !second_place.is_empty() {
+//            println!("Second Place: {}", display_order(second_place))
+//        };
+//        if !third_place.is_empty() {
+//            println!("Third Place: {}", display_order(third_place));
+//        }
+//    } else {
+//        println!("\nNo votes entered");
+//    }
+//}
+
 fn order_votes(candidates: &mut [Candidates; 5]) {
     let first_place_votes = candidates[0].votes;
-    let first_place: Vec<&Candidates> = candidates
-        .iter()
-        .take_while(|c| c.votes == first_place_votes)
-        .collect();
+    if first_place_votes != 0 {
+        // First place
+        let first_place: Vec<&Candidates> = candidates
+            .iter()
+            .take_while(|c| c.votes == first_place_votes)
+            .collect();
 
-    let second_place_votes = candidates[first_place.len()].votes;
-    let second_place: Vec<&Candidates> = candidates
-        .iter()
-        .skip(first_place.len())
-        .take_while(|c| c.votes == second_place_votes)
-        .collect();
+        let mut next_index = first_place.len();
 
-    let third_place_votes = candidates[first_place.len() + second_place.len()].votes;
-    let third_place: Vec<&Candidates> = candidates
-        .iter()
-        .skip(first_place.len() + second_place.len())
-        .take_while(|c| c.votes == third_place_votes)
-        .collect();
+        // Second place (if any left)
+        let second_place: Vec<&Candidates> = if let Some(candidate) = candidates.get(next_index) {
+            let second_place_votes = candidate.votes;
+            if second_place_votes != 0 {
+                let v: Vec<&Candidates> = candidates
+                    .iter()
+                    .skip(next_index)
+                    .take_while(|c| c.votes == second_place_votes)
+                    .collect();
+                next_index += v.len();
+                v
+            } else {
+                Vec::new()
+            }
+        } else {
+            Vec::new()
+        };
 
-    println!("\nFirst Place: {}", display_order(first_place));
-    println!("Second Place: {}", display_order(second_place));
-    println!("Third Place: {}", display_order(third_place));
+        // Third place (if any left)
+        let third_place: Vec<&Candidates> = if let Some(candidate) = candidates.get(next_index) {
+            let third_place_votes = candidate.votes;
+            if third_place_votes != 0 {
+                candidates
+                    .iter()
+                    .skip(next_index)
+                    .take_while(|c| c.votes == third_place_votes)
+                    .collect()
+            } else {
+                Vec::new()
+            }
+        } else {
+            Vec::new()
+        };
+
+        if !third_place.is_empty() {
+            println!("\nThird Place: {}", display_order(third_place));
+        }
+        if !second_place.is_empty() {
+            println!("Second Place: {}", display_order(second_place));
+        }
+        println!("First Place: {}", display_order(first_place));
+    } else {
+        println!("\nNo votes entered");
+    }
 }
 
 fn display_order(arr: Vec<&Candidates>) -> String {
