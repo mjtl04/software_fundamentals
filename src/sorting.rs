@@ -99,50 +99,6 @@ fn get_order(candidates: &mut [Candidates; 5]) {
     }
 }
 
-//fn order_votes(candidates: &mut [Candidates; 5]) {
-//    println!("checking");
-//    let first_place_votes = candidates[0].votes;
-//    if first_place_votes != 0 {
-//        let first_place: Vec<&Candidates> = candidates
-//            .iter()
-//            .take_while(|c| c.votes == first_place_votes)
-//            .collect();
-//
-//        let mut remaining_candidates = candidates.iter().skip(first_place.len());
-//
-//        let second_place: Vec<&Candidates> = if let Some(&candidate) = remaining_candidates.next() {
-//            let second_place_votes = candidate.votes;
-//            remaining_candidates
-//                .take_while(|c| c.votes == second_place_votes)
-//                .collect()
-//        } else {
-//            Vec::new()
-//        };
-//
-//        let mut remaining_after_second = remaining_candidates.clone();
-//
-//        let third_place: Vec<&Candidates> = if let Some(&candidate) = remaining_after_second.next()
-//        {
-//            let third_place_votes = candidate.votes;
-//            remaining_after_second
-//                .take_while(|c| c.votes == third_place_votes)
-//                .collect()
-//        } else {
-//            Vec::new()
-//        };
-//
-//        println!("\nFirst Place: {}", display_order(first_place));
-//        if !second_place.is_empty() {
-//            println!("Second Place: {}", display_order(second_place))
-//        };
-//        if !third_place.is_empty() {
-//            println!("Third Place: {}", display_order(third_place));
-//        }
-//    } else {
-//        println!("\nNo votes entered");
-//    }
-//}
-
 fn order_votes(candidates: &mut [Candidates; 5]) {
     let first_place_votes = candidates[0].votes;
     if first_place_votes != 0 {
@@ -154,7 +110,7 @@ fn order_votes(candidates: &mut [Candidates; 5]) {
 
         let mut next_index = first_place.len();
 
-        // Second place (if any left)
+        // Second place
         let second_place: Vec<&Candidates> = if let Some(candidate) = candidates.get(next_index) {
             let second_place_votes = candidate.votes;
             if second_place_votes != 0 {
@@ -172,7 +128,7 @@ fn order_votes(candidates: &mut [Candidates; 5]) {
             Vec::new()
         };
 
-        // Third place (if any left)
+        // Third place
         let third_place: Vec<&Candidates> = if let Some(candidate) = candidates.get(next_index) {
             let third_place_votes = candidate.votes;
             if third_place_votes != 0 {
