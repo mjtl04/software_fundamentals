@@ -1,6 +1,8 @@
 use std::io;
 
 pub fn task1() {
+    const LARGE_DISCOUNT: f32 = 500.0;
+    const SMALL_DISCOUNT: f32 = 250.0;
     //selection
     let mut input = String::new();
 
@@ -9,9 +11,9 @@ pub fn task1() {
     let cost: f32 = input.trim().parse().expect("error on parsing");
 
     if (0.0..=1000.0).contains(&cost) {
-        if cost > 500.0 {
+        if cost > LARGE_DISCOUNT {
             println!("You get a 20% discount!");
-        } else if cost > 250.0 {
+        } else if cost > SMALL_DISCOUNT {
             println!("You get a 10% discount!");
         } else {
             println!("No discount");
@@ -26,6 +28,9 @@ pub fn task2() {
     const CHILD: f32 = 7.30;
     const CONC: f32 = 8.40;
     const POSTAGE_COST: f32 = 2.34;
+    const CHILDREN_GROUP: u32 = 10;
+    const DISCOUNT: f32 = 0.9;
+    const DISCOUNT_THRESHOLD: f32 = 100.0;
 
     let mut input = String::new();
 
@@ -51,7 +56,7 @@ pub fn task2() {
     input.clear();
 
     //Calculation
-    let free_adults: u32 = no_children / 10;
+    let free_adults: u32 = no_children / CHILDREN_GROUP;
     let children_cost: f32 = no_children as f32 * CHILD;
     let mut adult_cost: f32 = 0.00;
 
@@ -63,8 +68,8 @@ pub fn task2() {
 
     let mut total_price = children_cost + adult_cost + concession_cost;
     //Apply discount
-    if total_price > 100.0 {
-        total_price *= 0.9;
+    if total_price > DISCOUNT_THRESHOLD {
+        total_price *= DISCOUNT;
     }
 
     let postage_cost = if collection == "no" {

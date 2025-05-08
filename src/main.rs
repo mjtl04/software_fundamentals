@@ -27,7 +27,7 @@ fn main() {
     //functions::task1_main();
     //functions::task2_main();
     //functions::task3_main();
-    searching::task1_main();
+    //searching::task1_main();
     //searching::task2_main();
     //recursion::task1_main();
     //recursion::task2_main();

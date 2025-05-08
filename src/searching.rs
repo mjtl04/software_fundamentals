@@ -80,7 +80,9 @@ pub fn task2_main() {
 }
 
 fn ternary_search(key: &str, last_names: &[&str], left: usize, right: usize) -> Option<usize> {
-    if left <= right {
+    if left > right {
+        None
+    } else {
         let mid_first = left + (right - left) / 3;
         let mid_second = mid_first + (right - left) / 3;
 
@@ -101,7 +103,5 @@ fn ternary_search(key: &str, last_names: &[&str], left: usize, right: usize) -> 
         }
 
         ternary_search(key, last_names, mid_first + 1, mid_second - 1)
-    } else {
-        None
     }
 }
