@@ -31,5 +31,5 @@ fn main() {
     //searching::task2_main();
     //recursion::task1_main();
     //recursion::task2_main();
-    //sorting::task1_main();
+    sorting::task1_main();
 }

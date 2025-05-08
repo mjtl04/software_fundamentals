@@ -104,12 +104,14 @@ fn sort_votes(candidates: &mut [Candidates; 5]) {
 fn order_votes(leaderboard: &str, position: usize, candidates: &mut [Candidates; 5]) -> usize {
     let value = candidates[position].votes;
 
-    print!("\n{leaderboard}: ");
-    for num in position..candidates.iter().len() {
-        if candidates[num].votes >= value {
-            print!("{}, ", candidates[num].name)
-        } else {
-            return num;
+    if value != 0 {
+        print!("\n{leaderboard}: ");
+        for num in position..candidates.iter().len() {
+            if candidates[num].votes >= value {
+                print!("{}, ", candidates[num].name)
+            } else {
+                return num;
+            }
         }
     }
     0_usize
