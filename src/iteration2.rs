@@ -1,6 +1,8 @@
 use rand::Rng;
 use std::io;
 
+const RANGE: std::ops::Range<u32> = 1..6;
+
 pub fn task1() {
     println!("matching die");
 
@@ -11,8 +13,8 @@ pub fn task1() {
     let mut counter = 0;
 
     while die1 != die2 {
-        die1 = rng.gen_range(1..=6);
-        die2 = rng.gen_range(1..=6);
+        die1 = rng.gen_range(RANGE);
+        die2 = rng.gen_range(RANGE);
 
         println!("die 1 is {die1}, die 2 is {die2}");
         counter += 1;
@@ -61,7 +63,7 @@ pub fn task3() {
 
     while current_balance < required_balance {
         interest = current_balance * interest_rate;
-        current_balance = current_balance + interest;
+        current_balance += interest;
 
         year_count += 1;
         println!("Balance after {year_count} years: £{current_balance:.2}");
