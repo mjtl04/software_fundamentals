@@ -11,7 +11,7 @@ mod sorting;
 
 fn main() {
     //maths::task1();
-    maths::task2();
+    //maths::task2();
     //selection::task1();
     //selection::task2();
     //selection2::task1();
@@ -27,7 +27,7 @@ fn main() {
     //functions::task1_main();
     //functions::task2_main();
     //functions::task3_main();
-    //searching::task1_main();
+    searching::task1_main();
     //searching::task2_main();
     //recursion::task1_main();
     //recursion::task2_main();
