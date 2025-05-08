@@ -39,6 +39,7 @@ pub fn task2() {
     const CYCLING_CBPM: f32 = 200.0 / HOUR_IN_MINUTES;
     const RUNNING_CBPM: f32 = 475.0 / HOUR_IN_MINUTES;
     const SWIMMING_CBPM: f32 = 275.0 / HOUR_IN_MINUTES;
+    const POUND_CALORIE_BURNT: f32 = 3500.0;
 
     println!("Weight Loss Application: ");
 
@@ -55,7 +56,7 @@ pub fn task2() {
     let hours_cycling: u32 = active_minutes_cycling / HOUR_IN_MINUTES as u32;
     let minutes_cycling: u32 = active_minutes_cycling - (hours_cycling * HOUR_IN_MINUTES as u32);
     let cycling_calories: f32 = active_minutes_cycling as f32 * CYCLING_CBPM;
-    let cycling_pounds: f32 = cycling_calories / 3500 as f32;
+    let cycling_pounds: f32 = cycling_calories / POUND_CALORIE_BURNT;
     input.clear();
 
     println!("Minutes running: ");
@@ -69,7 +70,7 @@ pub fn task2() {
     let hours_running: u32 = active_minutes_running / HOUR_IN_MINUTES as u32;
     let minutes_running: u32 = active_minutes_running - (hours_running * HOUR_IN_MINUTES as u32);
     let running_calories: f32 = active_minutes_running as f32 * RUNNING_CBPM;
-    let running_pounds: f32 = running_calories / 3500 as f32;
+    let running_pounds: f32 = running_calories / POUND_CALORIE_BURNT;
     input.clear();
 
     println!("Minutes swimming: ");
@@ -83,10 +84,31 @@ pub fn task2() {
     let hours_swimming: u32 = active_minutes_swimming / HOUR_IN_MINUTES as u32;
     let minutes_swimming: u32 = active_minutes_swimming - (hours_swimming * HOUR_IN_MINUTES as u32);
     let swimming_calories: f32 = active_minutes_swimming as f32 * SWIMMING_CBPM;
-    let swimming_pounds: f32 = swimming_calories / 3500 as f32;
+    let swimming_pounds: f32 = swimming_calories / POUND_CALORIE_BURNT;
 
-    println!("Activity      Time Spent  Calories Burnt  Pounds Lost");
-    println!("Cycling       {hours_cycling}:{minutes_cycling}        {cycling_calories}            {cycling_pounds:.3}");
-    println!("Running       {hours_running}:{minutes_running}        {running_calories}            {running_pounds:.3}");
-    println!("Swimming      {hours_swimming}:{minutes_swimming}      {swimming_calories}           {swimming_pounds:.3}");
+    println!(
+        "{:<12} {:>10} {:>16} {:>14}",
+        "Activity", "Time Spent", "Calories Burnt", "Pounds Lost"
+    );
+    println!(
+        "{:<12} {:>10} {:>16.2} {:>14.3}",
+        "Cycling",
+        format!("{}:{:02}", hours_cycling, minutes_cycling),
+        cycling_calories,
+        cycling_pounds
+    );
+    println!(
+        "{:<12} {:>10} {:>16.2} {:>14.3}",
+        "Running",
+        format!("{}:{:02}", hours_running, minutes_running),
+        running_calories,
+        running_pounds
+    );
+    println!(
+        "{:<12} {:>10} {:>16.2} {:>14.3}",
+        "Swimming",
+        format!("{}:{:02}", hours_swimming, minutes_swimming),
+        swimming_calories,
+        swimming_pounds
+    );
 }
