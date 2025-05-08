@@ -56,7 +56,6 @@ pub fn task3() {
     println!("Interest Rate: ");
     io::stdin().read_line(&mut input).expect("Error on input");
     let mut interest: f32 = input.trim().parse().expect("Error on parse");
-    input.clear();
     let interest_rate: f32 = interest / 100.0;
 
     let mut year_count = 0;

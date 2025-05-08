@@ -19,9 +19,9 @@ fn main() {
     //selection2::task3();
     //iteration::task1();
     //iteration::task2();
-    iteration2::task1();
+    //iteration2::task1();
     //iteration2::task2();
-    //iteration2::task3();
+    iteration2::task3();
     //arrays::task1();
     //arrays::task2();
     //functions::task1_main();
