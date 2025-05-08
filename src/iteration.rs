@@ -1,5 +1,5 @@
 use std::io;
-const INPUTS: u32 = 10;
+const INPUT_ITERATIONS: u32 = 10;
 
 pub fn task1() {
     println!("Enter 10 numbers");
@@ -8,7 +8,7 @@ pub fn task1() {
     let mut sum_positive: u32 = 0;
     let mut sum_negative: i32 = 0;
 
-    for _ in 0..INPUTS {
+    for _ in 0..INPUT_ITERATIONS {
         io::stdin()
             .read_line(&mut input)
             .expect("error on read line");
@@ -37,7 +37,7 @@ pub fn task2() {
     let mut positive_count: u32 = 0;
     let mut negative_count: u32 = 0;
 
-    for _ in 0..INPUTS {
+    for _ in 0..INPUT_ITERATIONS {
         io::stdin()
             .read_line(&mut input)
             .expect("error on read line");
