@@ -26,10 +26,10 @@ fn main() {
     //arrays::task2();
     //functions::task1_main();
     //functions::task2_main();
-    //functions::task3_main();
+    functions::task3_main();
     //searching::task1_main();
     //searching::task2_main();
     //recursion::task1_main();
     //recursion::task2_main();
-    sorting::task1_main();
+    //sorting::task1_main();
 }
